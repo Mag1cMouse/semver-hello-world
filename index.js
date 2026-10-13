@@ -31,10 +31,14 @@
       const language = document.getElementById("language").value;
       const greeting = document.getElementById("greeting");
 
-      if (!name) {
-        greeting.textContent = "Please enter your name.";
-        return;
-      }
+     
+if (!name) {
+  greeting.textContent = language === "ru"
+    ? "Пожалуйста, введите имя."
+    : "Please enter your name.";
+  return;
+}
+
 
       if (language === "ru") {
         greeting.textContent = `Привет, ${name}! Добро пожаловать!`;
