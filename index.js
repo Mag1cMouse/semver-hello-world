@@ -18,11 +18,20 @@
   </section>
 
   <script>
-    function greetUser() {
-      const name = document.getElementById("name").value;
-      document.getElementById("greeting").textContent =
-        `Hello, ${name}! Welcome to the application.`;
-    }
+    
+function greetUser() {
+  const input = document.getElementById("name");
+  const name = input.value.trim();
+  const greeting = document.getElementById("greeting");
+
+  if (!name) {
+    greeting.textContent = "Please enter your name.";
+    return;
+  }
+
+  greeting.textContent =
+    `Hello, ${name}! Welcome to the application.`;
+}
   </script>
 </body>
 </html>
