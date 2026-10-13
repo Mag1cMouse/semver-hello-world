@@ -11,27 +11,37 @@
 
   <section>
     <h2>Personalized Greeting</h2>
-    <label for="name">Enter your name:</label>
+
+    <label for="name">Name:</label>
     <input id="name" type="text" placeholder="Your name">
+
+    <label for="language">Language:</label>
+    <select id="language">
+      <option value="en">English</option>
+      <option value="ru">Russian</option>
+    </select>
+
     <button onclick="greetUser()">Greet me</button>
     <p id="greeting"></p>
   </section>
 
   <script>
-    
-function greetUser() {
-  const input = document.getElementById("name");
-  const name = input.value.trim();
-  const greeting = document.getElementById("greeting");
+    function greetUser() {
+      const name = document.getElementById("name").value.trim();
+      const language = document.getElementById("language").value;
+      const greeting = document.getElementById("greeting");
 
-  if (!name) {
-    greeting.textContent = "Please enter your name.";
-    return;
-  }
+      if (!name) {
+        greeting.textContent = "Please enter your name.";
+        return;
+      }
 
-  greeting.textContent =
-    `Hello, ${name}! Welcome to the application.`;
-}
+      if (language === "ru") {
+        greeting.textContent = `Привет, ${name}! Добро пожаловать!`;
+      } else {
+        greeting.textContent = `Hello, ${name}! Welcome!`;
+      }
+    }
   </script>
 </body>
 </html>
